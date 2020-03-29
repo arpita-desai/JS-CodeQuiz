@@ -179,14 +179,12 @@ input::placeholder {
 .hud-main-text {
     text-align: center;
     color: darkred;
-    border: 0.3rem solid aquamarine;
 }
 
 /* Timer */
 #timer {
     display: flex;
     justify-content: space-between;
-    
 }
 
 .timer-prefix {
@@ -197,5 +195,4 @@ input::placeholder {
 .timer-main-text {
     text-align: center;
     color: darkred;
-    border: 0.3rem solid aquamarine;
 }

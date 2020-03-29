@@ -1,6 +1,6 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-const progressText = document.getElementById("progressText");
+const progressText = document.getElementById("progressBarFull");
 const scoreText = document.getElementById("score");
 const progressBarFull = document.getElementById("progressBarFull");
 const timerElement = document.getElementById("timerCount");
@@ -15,29 +15,28 @@ var timerCount = 60;
 
 let questions = [
   {
-    question: "Inside which HTML element do we put the JavaScript??",
-    choice1: "<script>",
-    choice2: "<javascript>",
-    choice3: "<js>",
-    choice4: "<scripting>",
+    question: "Where is the correct place to insert a JavaScript?",
+    choice1: "The <body> section",
+    choice2: "The <head> section",
+    choice3: "Inside the <heading> section",
+    choice4: "Both the <head> section and the <body> section are correct",
+    answer: 4
+  },
+  {
+    question: "The external JavaScript file must contain the <script> tag.",
+    choice1: "False",
+    choice2: "True",
+    choice3: "Depend upon Developer",
+    choice4: "Depends upon Application",
     answer: 1
   },
   {
-    question:
-      "What is the correct syntax for referring to an external script called 'xxx.js'?",
-    choice1: "<script href='xxx.js'>",
-    choice2: "<script name='xxx.js'>",
-    choice3: "<script src='xxx.js'>",
-    choice4: "<script file='xxx.js'>",
-    answer: 3
-  },
-  {
-    question: " How do you write 'Hello World' in an alert box?",
-    choice1: "msgBox('Hello World');",
-    choice2: "alertBox('Hello World');",
-    choice3: "msg('Hello World');",
-    choice4: "alert('Hello World');",
-    answer: 4
+    question: "How do you create a function in JavaScript?",
+    choice1: "function myFunction()",
+    choice2: "function:myFunction()",
+    choice3: "function = myFunction()",
+    choice4: "function:=myFunction()",
+    answer: 1
   }
 ];
 
@@ -59,7 +58,7 @@ timer = () => {
     clearInterval(timerInterval);
     localStorage.setItem("mostRecentScore", score);
     //go to the end page
-    return window.location.assign("end.html");
+    return window.location.assign("score.html");
   } else {
     timerElement.textContent = timerCount;
   }
@@ -70,10 +69,10 @@ getNewQuestion = () => {
     clearInterval(timerInterval);
     localStorage.setItem("mostRecentScore", score);
     //go to the end page
-    return window.location.assign("end.html");
+    return window.location.assign("score.html");
   }
   questionCounter++;
-  progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+  progressText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
   //Update the progress bar
   progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
@@ -123,49 +122,3 @@ incrementScore = num => {
 };
 
 startGame();
-
-
-
-// HighScore JS
-const highScoresList = document.getElementById('highScoresList');
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-// Converting array to an li element
-highScoresList.innerHTML =
-	highScores
-		.map( score => {
-			return `<li class="high-score">${score.name}-${score.score}</li>`;
-})
-.join("");
-
-//ScoreBoard and Game JS
-const username = document.getElementById("username");
-const saveScoreBtn = document.getElementById("saveScoreBtn");
-const finalScore = document.getElementById("finalScore");
-const mostRecentScore = localStorage.getItem("mostRecentScore");
-
-//const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
-const MAX_HIGH_SCORES = 5;
-
-finalScore.innerText = mostRecentScore;
-
-username.addEventListener("keyup", () => {
-  saveScoreBtn.disabled = !username.value;
-});
-
-saveHighScore = e => {
-  console.log("clicked the save button!");
-  e.preventDefault();
-
-  const score = {
-    score: Math.floor(Math.random()*100),
-    name: username.value
-  };
-  highScores.push(score);
-  highScores.sort( (a,b) => b.score - a.score);
-  highScores.splice(5);
-
-  localStorage.setItem('highScores', JSON.stringify(highScores));
-  window.location.assign('/index.html');
-};

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreBoard</title>
+    <link rel="stylesheet" href="assests/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="end" class="flex-center flex-column">
+          <h1 id="finalScore"></h1>
+          <form>
+            <input
+              type="text"
+              name="playerame"
+              id="playername"
+              placeholder="playername"
+            />
+            <button
+              type="submit"
+              class="btn"
+              id="saveScoreBtn"
+              onclick="saveHighScore(event)"
+              disabled
+            >
+              Save
+            </button>
+          </form>
+          <a class="btn" href="quiz.html">Play Again</a>
+          <a class="btn" href="index.html">Go Home</a>
+        </div>
+      </div>
+</body>
+<script src="assests/js/score-1.0.js"></script>
+</html>
