@@ -18,7 +18,7 @@ saveHighScore = e => {
   e.preventDefault();
 
   const score = {
-    score: Math.floor(Math.random()*100),
+    score: mostRecentScore,
     name: playername.value
   };
   highScores.push(score);
@@ -26,5 +26,5 @@ saveHighScore = e => {
   highScores.splice(5);
 
   localStorage.setItem('highScores', JSON.stringify(highScores));
-  window.location.assign('/index.html');
+  window.location.assign('file:///C:/My%20Work/Arpi/JS_Work/JS-CodeQuiz/JS-CodeQuiz/index.html');
 };
