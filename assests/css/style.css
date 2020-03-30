@@ -152,6 +152,7 @@ input::placeholder {
     color: darkred;
 	font-weight: 900;
 	min-width: 70px;
+	border-radius: 10px 0px 0px 10px;
 }
 
 .choice-text {
@@ -161,11 +162,13 @@ input::placeholder {
 }
 
 .correct {
-    background-color: aquamarine;
+	background-color: aquamarine;
+	color: darkred;
 }
 
 .incorrect {
-    background-color: #dc3545;
+	background-color: #dc3545;
+	color: aquamarine;
 }
 
 /* Score */
