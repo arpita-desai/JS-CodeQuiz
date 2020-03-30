@@ -89,6 +89,7 @@ h3 {
 	text-align: center;
 	border: 0.1rem solid aquamarine;
 	margin-bottom: 1rem;
+	border-radius: 25px;
 	text-decoration: none;
 	color: #ffffff;
 	background-color: #1f1b24;
@@ -96,7 +97,7 @@ h3 {
 
 .btn:hover {
 	cursor: pointer;
-	box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 122, 67, 0.5);
+	box-shadow: 0 0.4rem 1.4rem 0 rgba(67, 255, 246, 0.658);
 	transform: translateY(-0.1rem);
 	transition: transform 150ms;
 }
@@ -122,7 +123,7 @@ input {
 	padding: 1.5rem;
 	font-size: 1.8rem;
 	border: none;
-	box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+	box-shadow: 0 0.1rem 1.4rem 0 rgba(67, 255, 246, 0.658);
 }
 
 input::placeholder {
@@ -133,13 +134,14 @@ input::placeholder {
     margin-bottom: 0.5rem;
     width: 100%;
     font-size: 1.8rem;
-    border: 0.1rem solid rgb(255, 122, 67, 0.25);
-    background-color: #1f1b24;
+    border: 0.1rem solid rgba(67, 255, 246, 0.658);
+	background-color: #1f1b24;
+	border-radius: 25px;
 }
 
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(255, 122, 67, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(67, 255, 246, 0.658);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -148,7 +150,8 @@ input::placeholder {
     padding: 1.5rem 2.5rem;
     background-color: aquamarine;
     color: darkred;
-    font-weight: 900;
+	font-weight: 900;
+	min-width: 70px;
 }
 
 .choice-text {
